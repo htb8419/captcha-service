@@ -10,6 +10,7 @@ import java.time.Duration;
 @Setter
 @ConfigurationProperties(prefix = "captcha")
 public class CaptchaProperties {
+    int charsCount = 5;
     String secretKey;
     Duration TTL = Duration.ofMinutes(2);
 }

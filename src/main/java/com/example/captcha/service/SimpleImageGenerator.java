@@ -5,20 +5,16 @@ import java.awt.geom.AffineTransform;
 import java.awt.image.BufferedImage;
 import java.security.SecureRandom;
 
-public class CaptchaImageGenerator {
+public class SimpleImageGenerator implements ImageGenerator {
     private static final int width = 200;
     private static final int height = 70;
     private final Font font;
-    public CaptchaImageGenerator() {
+
+    public SimpleImageGenerator() {
         font = new Font("Courier", Font.BOLD, 40);
     }
 
-    public BufferedImage generate(String s) {
-        return createImageFromText(s);
-    }
-
-    private BufferedImage createImageFromText(String text) {
-
+    public BufferedImage generate(String text) {
         BufferedImage image = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);
         Graphics2D g = image.createGraphics();
         // پس‌زمینه

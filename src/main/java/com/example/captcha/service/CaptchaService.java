@@ -10,10 +10,12 @@ import org.springframework.stereotype.Service;
 @Service
 @RequiredArgsConstructor
 public class CaptchaService {
-    private static final char[] chars = "ABCDEFGHIJKLMNPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz123456789".toCharArray();
-    private final CaptchaImageGenerator imageGenerator;
+    private static final char[] chars = "ABCDEFGHIJKLMNPQRSTUVWXYZabcdefghijkmnpqrstuvwxyz23456789".toCharArray();
+    private final ImageGenerator imageGenerator;
     private final CaptchaTokenService tokenService;
     private final CaptchaProperties properties;
+    private final CaptchaReplayProtectionService replayProtectionService;
+
 
     public CaptchaChallenge generateCaptcha() {
         var text = generateText();
@@ -25,10 +27,18 @@ public class CaptchaService {
     }
 
     public boolean verifyCaptcha(String token, String answer) {
-        return tokenService.validateToken(token, answer);
+        if (replayProtectionService.isUsed(token)) {
+            return false;
+        }
+
+        boolean valid = tokenService.validateToken(token, answer);
+        if (valid) {
+            replayProtectionService.markUsed(token);
+        }
+        return valid;
     }
 
     private String generateText() {
-        return RandomStringUtils.secure().next(6, chars);
+        return RandomStringUtils.secure().next(5, chars);
     }
 }

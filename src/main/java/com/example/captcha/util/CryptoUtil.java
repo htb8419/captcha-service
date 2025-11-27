@@ -5,6 +5,7 @@ import org.apache.commons.codec.binary.Hex;
 import javax.crypto.Mac;
 import javax.crypto.spec.SecretKeySpec;
 import java.nio.charset.StandardCharsets;
+import java.security.MessageDigest;
 
 public final class CryptoUtil {
     private static final String ALGORITHM = "HmacSHA256";
@@ -25,12 +26,7 @@ public final class CryptoUtil {
 
     // constant time equals to avoid timing attacks
     public static boolean constantTimeEquals(String a, String b) {
-        if (a == null || b == null) return false;
-        byte[] x = a.getBytes(StandardCharsets.UTF_8);
-        byte[] y = b.getBytes(StandardCharsets.UTF_8);
-        if (x.length != y.length) return false;
-        int result = 0;
-        for (int i = 0; i < x.length; i++) result |= x[i] ^ y[i];
-        return result == 0;
+        return MessageDigest.isEqual(a.getBytes(StandardCharsets.UTF_8),
+                b.getBytes(StandardCharsets.UTF_8));
     }
 }
