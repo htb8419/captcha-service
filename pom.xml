@@ -9,7 +9,7 @@
         <version>3.5.7</version>
         <relativePath/>
     </parent>
-    <groupId>com.example</groupId>
+    <groupId>ir.ht</groupId>
     <artifactId>captcha-service</artifactId>
     <version>1.0.0</version>
     <packaging>jar</packaging>

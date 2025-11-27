@@ -1,4 +1,4 @@
-package com.example.captcha.util;
+package ir.ht.captcha.util;
 
 import org.apache.commons.codec.binary.Hex;
 

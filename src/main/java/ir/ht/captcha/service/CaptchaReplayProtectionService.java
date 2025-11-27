@@ -1,4 +1,4 @@
-package com.example.captcha.service;
+package ir.ht.captcha.service;
 
 import lombok.RequiredArgsConstructor;
 import org.infinispan.Cache;

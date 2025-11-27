@@ -1,4 +1,4 @@
-package com.example.captcha.service;
+package ir.ht.captcha.service;
 
 import java.awt.*;
 import java.awt.geom.AffineTransform;

@@ -1,4 +1,4 @@
-package com.example.captcha.model;
+package ir.ht.captcha.model;
 
 import org.springframework.http.MediaType;
 

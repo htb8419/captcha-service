@@ -1,6 +1,6 @@
-package com.example.captcha;
+package ir.ht.captcha;
 
-import com.example.captcha.model.CaptchaVerifyRequest;
+import ir.ht.captcha.model.CaptchaVerifyRequest;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;

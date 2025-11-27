@@ -8,6 +8,8 @@ spring:
 logging:
   level:
     root: INFO
+
 captcha:
-  TTL: 2m
+  TTL: 120s
+  chars-count: 5
   secret-key: "ajsdhjashjdASDAsdamnksdnajsndjQEWQwdkmiasdcsnjdnfsdFSdfksndjfnjnsdjf"

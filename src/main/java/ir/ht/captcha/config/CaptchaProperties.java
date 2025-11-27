@@ -1,4 +1,4 @@
-package com.example.captcha.config;
+package ir.ht.captcha.config;
 
 import lombok.Getter;
 import lombok.Setter;

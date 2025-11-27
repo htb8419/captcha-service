@@ -1,7 +1,7 @@
-package com.example.captcha.service;
+package ir.ht.captcha.service;
 
-import com.example.captcha.config.CaptchaProperties;
-import com.example.captcha.model.CaptchaChallenge;
+import ir.ht.captcha.config.CaptchaProperties;
+import ir.ht.captcha.model.CaptchaChallenge;
 import lombok.RequiredArgsConstructor;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.springframework.http.MediaType;

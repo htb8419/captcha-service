@@ -1,7 +1,7 @@
-package com.example.captcha.service;
+package ir.ht.captcha.service;
 
-import com.example.captcha.config.CaptchaProperties;
-import com.example.captcha.util.CryptoUtil;
+import ir.ht.captcha.config.CaptchaProperties;
+import ir.ht.captcha.util.CryptoUtil;
 import lombok.RequiredArgsConstructor;
 import org.apache.commons.codec.binary.Base64;
 import org.springframework.stereotype.Service;

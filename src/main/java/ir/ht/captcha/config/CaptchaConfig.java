@@ -1,7 +1,7 @@
-package com.example.captcha.config;
+package ir.ht.captcha.config;
 
-import com.example.captcha.service.DefaultImageGenerator;
-import com.example.captcha.service.ImageGenerator;
+import ir.ht.captcha.service.DefaultImageGenerator;
+import ir.ht.captcha.service.ImageGenerator;
 import org.infinispan.Cache;
 import org.infinispan.commons.api.CacheContainerAdmin;
 import org.infinispan.configuration.cache.ConfigurationBuilder;
