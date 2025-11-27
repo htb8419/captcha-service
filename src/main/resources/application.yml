@@ -1,0 +1,13 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: captcha-service
+
+logging:
+  level:
+    root: INFO
+captcha:
+  TTL: 2m
+  secret-key: "ajsdhjashjdASDAsdamnksdnajsndjQEWQwdkmiasdcsnjdnfsdFSdfksndjfnjnsdjf"
