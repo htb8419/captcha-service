@@ -1,15 +1,11 @@
 server:
-  port: 8080
+  port: 9090
 
 spring:
   application:
     name: captcha-service
 
-logging:
-  level:
-    root: INFO
-
 captcha:
-  TTL: 120s
+  TTL: 600s
   chars-count: 5
   secret-key: "ajsdhjashjdASDAsdamnksdnajsndjQEWQwdkmiasdcsnjdnfsdFSdfksndjfnjnsdjf"

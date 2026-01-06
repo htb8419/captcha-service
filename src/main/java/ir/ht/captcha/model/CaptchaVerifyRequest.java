@@ -1,5 +1,8 @@
 package ir.ht.captcha.model;
 
-public record CaptchaVerifyRequest(String token,
-                                   String captchaText) {
+import jakarta.validation.constraints.NotEmpty;
+
+public record CaptchaVerifyRequest(@NotEmpty String requestKey,
+                                   @NotEmpty String token,
+                                   @NotEmpty String answer) {
 }

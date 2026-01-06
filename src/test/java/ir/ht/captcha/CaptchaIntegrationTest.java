@@ -65,7 +65,7 @@ class CaptchaIntegrationTest {
     void verifyCaptcha_shouldReturn400_whenWrong() {
 
         CaptchaVerifyRequest request =
-                new CaptchaVerifyRequest("wrong-token", "xxxx");
+                new CaptchaVerifyRequest("","","wrong-token", "xxxx");
 
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_JSON);

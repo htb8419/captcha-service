@@ -2,6 +2,7 @@ package ir.ht.captcha.service;
 
 import ir.ht.captcha.config.CaptchaProperties;
 import ir.ht.captcha.model.CaptchaChallenge;
+import ir.ht.captcha.model.CaptchaVerifyRequest;
 import lombok.RequiredArgsConstructor;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.springframework.http.MediaType;
@@ -17,21 +18,24 @@ public class CaptchaService {
     private final CaptchaReplayProtectionService replayProtectionService;
 
 
-    public CaptchaChallenge generateCaptcha() {
+    public CaptchaChallenge generateCaptcha(String requestKey) {
         var text = generateText();
         var image = imageGenerator.generate(text);
-        String token = tokenService.createToken(text);
+        var key = tokenService.joinWithDelimiter(requestKey, text);
+        String token = tokenService.createToken(key);
         return new CaptchaChallenge(token,
                 MediaType.IMAGE_PNG, image,
                 properties.getTTL());
     }
 
-    public boolean verifyCaptcha(String token, String answer) {
+    public boolean verifyCaptcha(CaptchaVerifyRequest verifyRequest) {
+        String token = verifyRequest.token();
         if (replayProtectionService.isUsed(token)) {
             return false;
         }
-
-        boolean valid = tokenService.validateToken(token, answer);
+        var key = tokenService.joinWithDelimiter(verifyRequest.requestKey(),
+                verifyRequest.answer());
+        boolean valid = tokenService.validateToken(token, key);
         if (valid) {
             replayProtectionService.markUsed(token);
         }
